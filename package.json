@@ -1,0 +1,29 @@
+{
+  "name": "math_game",
+  "version": "1.0.0",
+  "description": "math game in React",
+  "main": "script.jsx",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milant88/math_game.git"
+  },
+  "keywords": [
+    "math",
+    "game",
+    "React"
+  ],
+  "author": "Milan Tomic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milant88/math_game/issues"
+  },
+  "homepage": "https://github.com/milant88/math_game#readme",
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  }
+}
