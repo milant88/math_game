@@ -1,17 +1,45 @@
 var Button = React.createClass({
-    getInitialState: function () {
-        return { counter: 0 };
-    },
-    handleClick: function () {
-        this.setState({ counter: this.state.counter + 1 });
+    localHandleClick: function () {
+        this.props.localHandleClick(this.props.increment);
     },
     render: function () {
         return React.createElement(
             "button",
-            { onClick: this.handleClick },
-            this.state.counter
+            { onClick: this.localHandleClick },
+            "+",
+            this.props.increment
         );
     }
 });
 
-ReactDOM.render(React.createElement(Button, null), document.getElementById("root"));
+var Result = React.createClass({
+    render: function () {
+        return React.createElement(
+            "div",
+            null,
+            this.props.localCounter
+        );
+    }
+});
+
+var Main = React.createClass({
+    getInitialState: function () {
+        return { counter: 0 };
+    },
+    handleClick: function (increment) {
+        this.setState({ counter: this.state.counter + increment });
+    },
+    render: function () {
+        return React.createElement(
+            "div",
+            null,
+            React.createElement(Button, { localHandleClick: this.handleClick, increment: 1 }),
+            React.createElement(Button, { localHandleClick: this.handleClick, increment: 5 }),
+            React.createElement(Button, { localHandleClick: this.handleClick, increment: 10 }),
+            React.createElement(Button, { localHandleClick: this.handleClick, increment: 100 }),
+            React.createElement(Result, { localCounter: this.state.counter })
+        );
+    }
+});
+
+ReactDOM.render(React.createElement(Main, null), document.getElementById("root"));
